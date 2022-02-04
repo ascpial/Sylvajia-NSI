@@ -9,7 +9,7 @@ from pygame.surface import Surface
 import discordsdk
 
 from .enums import PlayerPos, PlayerPosKey
-from .playloads import Playload
+from .payloads import Payload
 from .sprites import Sprite
 
 if TYPE_CHECKING:
@@ -24,6 +24,20 @@ class Transition:
         end: int,
         duration: float
     ) -> None:
+        """Créé un objet de transition utilisé pour rendre plus agréable à voir
+        le déplacement d'un joueur.
+        Une transition n'est disponible que sur un axe, et plusieurs
+        transitions sont nécessaires pour gérer les deux dimensions.
+        
+        Attributes
+        ----------
+        begin: int
+            Le point sur lequel commencer la transition
+        end: int
+            Le point sur lequel finir la transition
+        duration: float
+            La durée de la transition
+        """
         self.begin = begin
         self.end = end
         self.value = self.begin
@@ -33,15 +47,31 @@ class Transition:
     
     @property
     def done(self) -> bool:
+        """Retourne True si la transition est finie
+        
+        Returns
+        -------
+        bool
+            Le booléen indiquant si la transition est finie ou non
+        """
         return time.time() >= self.end_time
 
     def get_state(self) -> float:
+        """Retourne le stade actuel de la transition
+        
+        Returns
+        -------
+        float
+            Le point actuel de la transition
+        """
         act_time = time.time()
         if act_time >= self.end_time:
             return 1
         return (act_time-self.start_time) / self.duration
     
     def update(self) -> None:
+        """Met à jour la valeur de la transition
+        """
         if time.time() >= self.end_time:
             self.value = self.end
         self.value = self.begin + (self.end-self.begin)*self.get_state()
@@ -51,6 +81,15 @@ class Coords:
     transition: List[Optional[Transition]]
 
     def __init__(self, x: int = 0, y: int = 0) -> None:
+        """Initialise le joueur
+        
+        Attributes
+        ----------
+        x: int = 0
+            La coordonnée x du point sur lequel créer le joueur
+        y: int = 0
+            La coordonnée x du point sur lequel créer le joueur
+        """
         self.coords = [x, y]
         self.transition = [None, None]
     
@@ -89,6 +128,8 @@ class Coords:
             )
         
     def update(self) -> None:
+        """Met à jour les transition du joueur
+        """
         for i, transition in enumerate(self.transition):
             if transition is not None:
                 transition.update()
@@ -208,7 +249,7 @@ class Player:
         offset_y: int = 0
             La coordonnée relative par rapport à y
         check_move: bool = True
-            Si `check_moce`vaut `True`, alors le joueur vérifi si le mouvement est possible.
+            Si `check_mode`vaut `True`, alors le joueur vérifie si le mouvement est possible.
             Pour cela, il regarde si la tuile aux coordonnées indiquées a une hitbox, et ne fait pas de mouvement si c'est le cas.
         
         Returns
@@ -329,27 +370,27 @@ class Players:
             player.update_animation()
             player.render()
         
-    def on_message(self, playload: Playload, parent) -> None:
-        """Cette fonction est appelée quand le jeu reçoit un playload venant de discord.
+    def on_message(self, payload: Payload, parent) -> None:
+        """Cette fonction est appelée quand le jeu reçoit un payload venant de discord.
         Elle permet de mettre à jour la position des joueurs
         
         Attributes
         ----------
-        playload: Playload
+        payload: Payload
             La charge utile du message qui est arrivé au client discord
         parent: Pygame
             Unused
         """
-        if playload.type == PlayerPos.update:
-            x, y = playload.data[PlayerPosKey.pos_x], playload.data[PlayerPosKey.pos_y]
-            self.players[playload.data[PlayerPosKey.user_id]].coords.coords[0] = x
-            self.players[playload.data[PlayerPosKey.user_id]].coords.coords[1] = y
+        if payload.type == PlayerPos.update:
+            x, y = payload.data[PlayerPosKey.pos_x], payload.data[PlayerPosKey.pos_y]
+            self.players[payload.data[PlayerPosKey.user_id]].coords.coords[0] = x
+            self.players[payload.data[PlayerPosKey.user_id]].coords.coords[1] = y
         
     def update_pos(self) -> None:
-        """Met à jour la position du joueur et envoit le paquet aux autres personnes connectées à la partie.
+        """Met à jour la position du joueur et envoi le paquet aux autres personnes connectées à la partie.
         """
         if self.player and self.parent.discord.enable:
-            playload = Playload(
+            payload = Payload(
                 PlayerPos.update,
                 [
                     self.player.x, 
@@ -357,7 +398,7 @@ class Players:
                     self.player.id
                 ]
             )
-            self.parent.discord.send_message(1, playload)
+            self.parent.discord.send_message(1, payload)
     
     def reset(self) -> None:
         """Cette fonction réinitialise tout les joueurs.

@@ -1,4 +1,4 @@
-# Supprimes le message d'acceuil de pygame
+# Supprimes le message accueil de pygame
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 

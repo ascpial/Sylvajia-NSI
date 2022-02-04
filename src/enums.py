@@ -1,5 +1,5 @@
 """Ce fichier contient les constantes du projet.
-Ce sont des nombres qui sont utilisé par le programme pour identifier certaines choses notamment dans les playloads,
+Ce sont des nombres qui sont utilisé par le programme pour identifier certaines choses notamment dans les payloads,
 afin de transmettre les informations.
 """
 

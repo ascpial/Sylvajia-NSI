@@ -1,3 +1,6 @@
+"""Pour plus d'informations sur l'utilité et le fonctionnement de ce fichier,
+référez-vous au README.md"""
+
 from __future__ import annotations
 from typing import Iterator, List, Optional, Union, TYPE_CHECKING
 
@@ -8,7 +11,7 @@ import discordsdk
 import discordsdk.exception
 
 from .configuration import configuration
-from .playloads import Playload
+from .payloads import Payload
 
 if TYPE_CHECKING:
     from .game import Pygame
@@ -155,9 +158,9 @@ class Discord:
             return self.lobby_manager.get_member_metadata_value(self.lobby.id, user_id, key)
         except: return None
     
-    def send_message(self, channel:int, data: Union[bytes, Playload], user_id = None, peer_id = None):
+    def send_message(self, channel:int, data: Union[bytes, Payload], user_id = None, peer_id = None):
         if self.enable:
-            if type(data) == Playload:
+            if type(data) == Payload:
                 data = str(data).encode("utf8")
             self.lobby.send_message(channel, data, user_id, peer_id)
     
@@ -165,7 +168,7 @@ class Discord:
         self.enable = False
 
 class Member:
-    """Classe représantant le membre d'un lobby"""
+    """Classe représentant le membre d'un lobby"""
 
     def __init__(self, parent:Discord, user_id, peer_id, route):
         self.parent = parent
@@ -204,13 +207,13 @@ class Lobby:
         self.users = []
     
     def iter_members(self) -> Iterator[discordsdk.User]:
-        """Retourne un itérateur de tout les memrbes du lobby"""
+        """Retourne un itérateur de tout les membres du lobby"""
         for user_id in self.iter_members_id():
             user = self.parent.lobby_manager.get_member_user(self.id, user_id)
             yield user
     
     def iter_members_id(self) -> Iterator[int]:
-        """Retourne un intérateur des ids des membres du lobby"""
+        """Retourne un itérateur des ids des membres du lobby"""
         for i in range(self.parent.lobby_manager.member_count(self.id)):
             yield self.parent.lobby_manager.get_member_user_id(self.id, i)
         
@@ -226,7 +229,7 @@ class Lobby:
     
     def update_members(self):
         """Associe tout les utilisateur du lobby actuel et demande le monde au premier joueur rencontré
-        (en régle générale l'hoster)"""
+        (en règle générale la personne qui héberge la partie)"""
         asked = False
         for user_id in self.iter_members_id():
             if user_id != self.parent.user.id:
@@ -272,12 +275,12 @@ class Callbacks:
         self.parent = parent
 
     def on_current_user_update(self):
-        """Apellé quand l'utilisateur actuel subit une mise à jour, tel que un changement de pseudo"""
+        """Appelé quand l'utilisateur actuel subit une mise à jour, tel que un changement de pseudo"""
         self.parent.user = self.parent.user_manager.get_current_user()
         self.parent.init_state += 1
     
     def on_route_update(self, route:str):
-        """Apellé quand la route d'accès au client discord change"""
+        """Appelé quand la route d'accès au client discord change"""
         self.parent.route = route
         self.parent.peer_id = self.parent.network_manager.get_peer_id()
         self.parent.init_state += 1
@@ -313,17 +316,17 @@ class Callbacks:
         self.parent.connect_lobby_with_status(join_secret)
     
     def on_message(self, peer_id: int, channel_id: int, message: bytes):
-        playload = Playload.from_bytes(message)
-        playload.peer_id = peer_id
-        playload.channel_id = channel_id
+        payload = Payload.from_bytes(message)
+        payload.peer_id = peer_id
+        payload.channel_id = channel_id
 
-        if playload.channel_id == 1:
+        if payload.channel_id == 1:
             self.parent.parent.players.on_message(
-                playload,
+                payload,
                 self.parent
             )
-        elif playload.channel_id == 2:
-            self.parent.parent.map.on_message(playload, self.parent)
+        elif payload.channel_id == 2:
+            self.parent.parent.map.on_message(payload, self.parent)
     
     def update_activity_callback(self, result:discordsdk.Result):
         if result == discordsdk.Result.ok:

@@ -2,7 +2,7 @@
 
 # Sylvajia
 
-Ce projet est un jeu mutlijoueur en 2D avec une vision verticale. Le personnage évolue sur une grille de cases de terrain.
+Ce projet est un jeu multijoueur en 2D avec une vision verticale. Le personnage évolue sur une grille de cases de terrain.
 
 Le but, dans l'état actuel des choses est de résoudre un labyrinthe. Un labyrinthe parfait aléatoire fait office de monde dans cette version du jeu.
 
@@ -47,7 +47,7 @@ Les librairies utilisées sont les suivantes :
 
 
 ### Étapes principales du jeu
-* Démarage du jeu :
+* Démarrage du jeu :
   * Python lance le jeu
   * La librairie Pygame est lancé et la fenêtre s'affiche, avec écrit "Connexion à discord..." en blanc sur noir
   * Le jeu se connecte au client discord pour récupérer le pseudo et l'ID de l'utilisateur. Si discord n'est pas lancé, le jeu se stop est discord est lancé (ceci est géré par la bibliothèque C que discord met à disposition des développeurs)
@@ -58,14 +58,14 @@ Les librairies utilisées sont les suivantes :
   * Une fois le bouton cliqué, le jeu se connecte au lobby discord (le fonctionnement du SDK est expliqué plus loin), et les joueurs sont connectés sur la même partie. Ils peuvent bouger ensemble et ont le même monde à leur disposition.
 
 ### Gameplay
-Le gameplay est extrèmement simple : le personnage peut être bougé en utilisant les touches flèches du clavier. Il peut ainsi résoudre le labyrinthe et aller au moulin (allez savoir pourquoi, j'ai pas développé ce jeu...).
+Le gameplay est extrêmement simple : le personnage peut être bougé en utilisant les touches flèches du clavier. Il peut ainsi résoudre le labyrinthe et aller au moulin (allez savoir pourquoi, j'ai pas développé ce jeu...).
 
 ### Crédits
 
 Ce projet n'aurait pas été possible sans d'autres projets annexes sur lesquels est basé celui ci, je les remercie donc pour leur travail !
-| Nom | Lien | Utilsiation | License (si appliquable) |
+| Nom | Lien | Utilisation | License (si applicable) |
 | :-- | :--- | :---------- | :----------------------- |
-| Toen's Medieval Strategy Sprite Pack | https://toen.itch.io/toens-medieval-strategy | Basiquement toutes les textures du jeu viennent de ce projet. Aucune texture n'a été modifiée dans l'état actuel des choses. Ce projet est sous license `Creative Commons v4.0` | http://creativecommons.org/licenses/by/4.0/ |
+| Toen's Medieval Strategy Sprite Pack | https://toen.itch.io/toens-medieval-strategy | Basiquement toutes les textures du jeu viennent de ce projet. Aucune texture n'a été modifiée dans l'état actuel des choses. Ce projet est sous licence `Creative Commons v4.0` | http://creativecommons.org/licenses/by/4.0/ |
 
 ## Structure du programme
 | Dossier | Fichier | Fonction |
@@ -85,8 +85,8 @@ Ce projet n'aurait pas été possible sans d'autres projets annexes sur lesquels
 | :------ | :------ | :------- |
 | [./data/images](https://github.com/ascpial/Sylvajia-NSI/tree/main/data/images) | * | Ce dossier contient toutes les textures utilisées par le jeu. |
 | [./data/fonts](https://github.com/ascpial/Sylvajia-NSI/tree/main/data/fonts) | * | Ce dossier contient les polices d'écriture utilisées par le jeu |
-| [./data/Toen's Medieval Strategy Sprite Pack v.1.0 (16x16)](https://github.com/ascpial/Sylvajia-NSI/tree/main/data/Toen's%20Medieval%20Strategy%20Sprite%20Pack%20v.1.0%20(16x16)) | * | Ce dossier contient les resources originales du pack de texture, trouvable [ici](https://toen.itch.io/toens-medieval-strategy) |
-| [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | blocs.json | Ce fichier json contient les propriétées des différents terrain disponible dans le jeu. |
+| [./data/Toen's Medieval Strategy Sprite Pack v.1.0 (16x16)](https://github.com/ascpial/Sylvajia-NSI/tree/main/data/Toen's%20Medieval%20Strategy%20Sprite%20Pack%20v.1.0%20(16x16)) | * | Ce dossier contient les ressources originales du pack de texture, trouvable [ici](https://toen.itch.io/toens-medieval-strategy) |
+| [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | blocs.json | Ce fichier json contient les propriétés des différents terrain disponible dans le jeu. |
 | [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | configuration.json | C'est le fichier de configuration du jeu. Il contient l'ID d'application discord (voir plus dans la section Discord) |
 | [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | textures.json | Ce fichier contient les textures des terrains du jeu, avec notamment les fichiers correspondant, le type de textures (animé ou non...) |
 | [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | networking.png | L'image présentant le fonctionnement de l'interface entre le jeu et l'application discord |
@@ -100,17 +100,17 @@ Ce projet n'aurait pas été possible sans d'autres projets annexes sur lesquels
 | Dossier | Fichier | Fonction |
 | :------ | :------ | :------- |
 | [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | configuration.py | Ce fichier charge la configuration dans une classe facilement utilisable dans le reste du programme |
-| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | discord.py | Ce fichier interface discord avec le jeu. Il contient les fonctions appelées aux évenements et implémente le protocol du jeu |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | discord.py | Ce fichier interface discord avec le jeu. Il contient les fonctions appelées aux évènements et implémente le protocole du jeu |
 | [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | enums.py | Certaines section du jeu nécessite d'avoir des nombres utilisés pour certaines tâches. Pour rendre le code plus lisible, ces nombres sont stockés dans ce fichier sous forme de constantes |
-| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | extract.py | Ce fichier est utilisé pour découper les textures du pack originale en fichiers plus petits et plus facils d'utilisation |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | extract.py | Ce fichier est utilisé pour découper les textures du pack originale en fichiers plus petits et plus faciles d'utilisation |
 | [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | game.py | Ce fichier contient la classe principale du programme. C'est lui qui contient les routines pour répondre aux entrées via le clavier et qui fait marcher les différentes parties du programme ensemble |
 | [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | map.py | Ce fichier contient les classes nécessaires pour gérer le terrain du jeu et la transformation du labyrinthe en terrain jouable |
 | [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | maze_generator.py | Comme son nom l'indique, ce fichier contient le générateur de labyrinthe utilisé pour générer le terrain de la partie, voir la section `Labyrinthe` pour plus d'informations |
 | [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | players.py | Ce fichier contient les classes implémentant les joueurs et la classe permettant de gérer plusieurs joueurs à la fois |
-| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | playloads.py | Ce fichier permet d'interfacer les différents clients facilement avec une conversion des messages du programmes en messages envoyable via discord |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | payloads.py | Ce fichier permet d'interfacer les différents clients facilement avec une conversion des messages du programmes en messages envoyable via discord |
 | [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | sprites.py | Ce fichier contient les classes qui gèrent les textures et leur affichage sur l'écran |
 | [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | discord_requests.py | Ce fichier est en court de création, il sera utilisé pour faciliter les requêtes entre clients |
-| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | playloads_workinprogress.py | Comme son nom l'indique, ce fichier est le travail en court pour l'implémentation des playloads en binaire |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | payloads_workinprogress.py | Comme son nom l'indique, ce fichier est le travail en court pour l'implémentation des payloads en binaire |
 
 </details>
 
@@ -125,9 +125,9 @@ Discord, plateforme de communication initialement dédiée aux communautés de j
 
 Le [Discord GameSDK](https://discord.com/developers/docs/game-sdk/sdk-starter-guide) est un service disponible avec l'application bureau. Il permet aux jeux de se connecter au compte discord du joueur, et de trouver facilement des personnes avec qui jouer. En effet, un système d'invitation pour une partie est disponible dans discord et permet d'envoyer un message contenant un bouton à cliquer qui envois des informations au jeu. Cela peut être exploité pour inviter des gens à rejoindre un monde par exemple.
 
-De plus, le Discord GameSDK permet aussi d'implémenter des fonctionnalités de multijoueur : les utilisateurs peuvent rejoindre des [lobbys](https://discord.com/developers/docs/game-sdk/lobbies) dans lesquels il peuvent partager des informations avec les autres membres en utilisant des métadonnées. Des connections directs entre les utilisateurs pour échanger des données via un système d'évènements est disponible avec l'aspect [networking](https://discord.com/developers/docs/game-sdk/networking) de la librairie, qui permet d'envoyer des messages avec une connection UDP comme si c'était du TCP très facilement.
+De plus, le Discord GameSDK permet aussi d'implémenter des fonctionnalités de multijoueur : les utilisateurs peuvent rejoindre des [lobbys](https://discord.com/developers/docs/game-sdk/lobbies) dans lesquels il peuvent partager des informations avec les autres membres en utilisant des métadonnées. Des connections directs entre les utilisateurs pour échanger des données via un système d'évènements est disponible avec l'aspect [networking](https://discord.com/developers/docs/game-sdk/networking) de la librairie, qui permet d'envoyer des messages avec une connexion UDP comme si c'était du TCP très facilement.
 
-Le Discord GameSDK contient aussi d'autres fonctionnalitées commes les [achievments](https://discord.com/developers/docs/game-sdk/achievements), les [vocaux](https://discord.com/developers/docs/game-sdk/discord-voice), du [stockage cloud](https://discord.com/developers/docs/game-sdk/storage), des [achats intégrés](https://discord.com/developers/docs/game-sdk/users)...
+Le Discord GameSDK contient aussi d'autres fonctionnalités comme les [achievments](https://discord.com/developers/docs/game-sdk/achievements), les [vocaux](https://discord.com/developers/docs/game-sdk/discord-voice), du [stockage cloud](https://discord.com/developers/docs/game-sdk/storage), des [achats intégrés](https://discord.com/developers/docs/game-sdk/users)...
 
 Pour en savoir plus sur les fonctionnalités disponibles dans le Discord GameSDK, vous pouvez aller voir la [documentation](https://discord.com/developers/docs/game-sdk/sdk-starter-guide).
 
@@ -142,7 +142,7 @@ Pour en savoir plus sur les fonctionnalités disponibles dans le Discord GameSDK
 
 L'affichage du jeu est géré par la bibliothèque python [pygame](https://pygame.org/).
 
-> Pygame est une bibliothèque libre multiplate-forme qui facilite le développement de jeux vidéo temps réel avec le langage de programmation Python.
+> Pygame est une bibliothèque libre multi plate-forme qui facilite le développement de jeux vidéo temps réel avec le langage de programmation Python.
 >
 > Elle est distribuée selon les termes de la licence GNU LGPL.
 >
@@ -168,7 +168,7 @@ Le labyrinthe est ce qu'on appelle un labyrinthe parfait. Cela veut dire que il 
 
 Le principe est simple et se résume en quelques étapes.
 
-Tout d'abord, il faut créer le labyrinthe avec tout ses murs de manière à ce que chaque case soit séparée de ses voisines par un mur. Le labyrinthe à l'état actuel resemble à ceci :
+Tout d'abord, il faut créer le labyrinthe avec tout ses murs de manière à ce que chaque case soit séparée de ses voisines par un mur. Le labyrinthe à l'état actuel ressemble à ceci :
 
 ```
 ┌──┬──┬──┬──┬──┐
@@ -215,7 +215,7 @@ L'implémentation de cet algorithme pour le jeu est située dans le fichier `./s
 Le jeu est disponible déjà compilé. Pour pouvoir télécharger le jeu et le lancer facilement sans installer python, vous pouvez suivre ces étapes :
 1. Allez sur la [page des releases](https://github.com/ascpial/Sylvajia-NSI/releases)
 2. Téléchargez le fichier `Sylvajia_executable.zip` et décompressez le
-3. Vous pouvez maintenant lancer le jeu en ouvrant le fichier `Sylvajia.exe` dans le dossier décompréssé !
+3. Vous pouvez maintenant lancer le jeu en ouvrant le fichier `Sylvajia.exe` dans le dossier décompressé !
 
 ### Avec les sources
 

@@ -157,6 +157,7 @@ class Maze:
             cell.zone = new_zone
         self.zones.append(new_zone)
 
+# Lancer ce script directement va lancer un test
 if __name__ == "__main__":
     maze = Maze(5, 4)
     maze.generate()

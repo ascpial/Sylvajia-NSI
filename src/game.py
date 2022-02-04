@@ -1,5 +1,4 @@
 from __future__ import annotations
-from curses import keyname
 
 import pickle
 import time
@@ -11,6 +10,7 @@ import pygame.time
 import pygame.event
 import pygame.key
 import pygame.font
+import pygame.image
 
 from .discord import Discord
 from .players import Players
@@ -52,6 +52,8 @@ class Pygame:
 
         self.screen = pygame.display.set_mode((650, 500))
         pygame.display.set_caption("Sylvajia")
+        pygame_icon = pygame.image.load('./data/images/player.png')
+        pygame.display.set_icon(pygame_icon)
         self.clock = pygame.time.Clock()
 
         self.discord = Discord(self)
@@ -66,7 +68,7 @@ class Pygame:
         """Cette fonction fait tourner le jeu tant qu'il n'est pas quitté (avec la croix ou alt+f4).
         """
         message = self.font.render(
-            "Connecting to discord...",
+            "Connexion à discord...",
             False,
             (255, 255, 255)
         )
@@ -142,7 +144,7 @@ class Pygame:
     def process_keys(self):
         global MOVE_INTERVAL
         """Cette fonction regarde les touches pressées et agit en conséquence
-        (c'est elle qui gère le mouvement, et le menu de débugage)
+        (c'est elle qui gère le mouvement, et le menu de débogage)
         """
         key_input = pygame.key.get_pressed()
         if key_input[pygame.K_UP]:
@@ -181,7 +183,7 @@ class Pygame:
     @property
     def camera_x(self):
         """camera_x et camera_y sont utilisées pour le point central de l'écran.
-        Ces propritétés pourront être utilisées plus tard pour décaler l'écran quand on arrive au bord du monde si besoin.
+        Ces propriétés pourront être utilisées plus tard pour décaler l'écran quand on arrive au bord du monde si besoin.
         """
         if self.players.player is not None:
             return self.players.player.x
@@ -191,7 +193,7 @@ class Pygame:
     @property
     def camera_y(self):
         """camera_x et camera_y sont utilisées pour le point central de l'écran.
-        Ces propritétés pourront être utilisées plus tard pour décaler l'écran quand on arrive au bord du monde si besoin.
+        Ces propriétés pourront être utilisées plus tard pour décaler l'écran quand on arrive au bord du monde si besoin.
         """
         if self.players.player is not None:
             return self.players.player.y

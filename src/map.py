@@ -9,7 +9,7 @@ import pygame
 from .maze_generator import Maze
 from .discord import Discord
 from .enums import Channels, World, WorldKey, WorldType
-from .playloads import Playload
+from .payloads import Payload
 from .sprites import Sprite
 
 if TYPE_CHECKING:
@@ -264,7 +264,7 @@ class Connected(Tile):
         return self.parent[x, y].type in self.connected
 
 class ElaborateConnected(Tile):
-    """Représente une tuile possédant une connexion élaborée, avec deux types de voisins : le bord et l'intèrieur."""
+    """Représente une tuile possédant une connexion élaborée, avec deux types de voisins : le bord et intérieur."""
     top: int = 1
     bottom: int = 1
     left: int = 1
@@ -549,7 +549,7 @@ class Map:
     
     def render(self) -> None:
         """Traite le rendu du monde
-        Cette fonction affiche sur l'écran de l'élèment parent les tuiles affichables
+        Cette fonction affiche sur l'écran de élément parent les tuiles affichables
         """
         self.animation_state += 1
         for y in range(int(self.parent.camera_y)-8, int(self.parent.camera_y)+10):
@@ -603,14 +603,14 @@ class Map:
             background = None
         return cls(x, y, type, data, self, background)
     
-    def on_message(self, playload:Playload, discord: Discord) -> None:
+    def on_message(self, payload:Payload, discord: Discord) -> None:
         """Traite un message reçu sur le channel 2 (channel de mises à jour du monde)
         """
-        if playload.type == World.get:
-            if playload.data == WorldType.all:
+        if payload.type == World.get:
+            if payload.data == WorldType.all:
                 discord.send_message(
                     Channels.world_update.value,
-                    Playload(
+                    Payload(
                         World.update.value,
                         [
                             WorldType.all.value,
@@ -618,14 +618,14 @@ class Map:
                         ]
                     )
                 )
-        elif playload.type == World.update:
-            if playload.data[WorldKey.type] == WorldType.all:
-                self.load_dict(playload.data[WorldKey.data.value])
+        elif payload.type == World.update:
+            if payload.data[WorldKey.type] == WorldType.all:
+                self.load_dict(payload.data[WorldKey.data.value])
     
     def query(self, discord: Discord) -> None:
         discord.send_message(
             Channels.world_update.value,
-            Playload(
+            Payload(
                 World.get.value,
                 WorldType.all.value
             )
@@ -652,7 +652,7 @@ class Map:
         self.parent.texture_index = value
     
     def to_dict(self) -> Dict[str, Any]:
-        """Retourne le status actuel de la classe pour le picklisateur"""
+        """Retourne le status actuel de la classe pour le sérialisateur"""
         map = []
         for row in self.map:
             dict_row = []
@@ -667,7 +667,8 @@ class Map:
     
     def load_dict(self, dict: Dict[str, Any]) -> None:
         """Charge un fichier json dans l'instance actuelle.
-        Cette fonction est utilisée pour charger le monde d'une partie multijoueur.
+        Cette fonction est utilisée pour charger le monde d'une partie
+        multijoueur.
         """
         map = []
         map_to_load = dict["map"]
@@ -680,11 +681,13 @@ class Map:
         self.map = map
     
     def set_parent(self, parent):
-        """Paramètre le parent de la classe et des enfants (les tuiles) pour correspondre aux infromations données"""
+        """Paramètre le parent de la classe et des enfants (les tuiles) pour
+        correspondre aux informations données"""
         self.parent = parent
     
     def allow_move(self, x: int, y: int) -> bool:
-        """Retourne si le joueur a le droit de marcher sur la tuile aux coordonnées `x` , `y`
+        """Retourne si le joueur a le droit de marcher sur la tuile aux
+        coordonnées `x` , `y`
         
         Attributes
         ----------

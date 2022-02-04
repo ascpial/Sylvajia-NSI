@@ -312,4 +312,4 @@ J'ai beaucoup aimé faire ce projet qui m'a appris beaucoup de choses sur la man
 
 J'ai aussi beaucoup aimé faire la partie concernant discord, même si elle n'a pas grand chose à voir avec le projet demandé par mon professeur.
 
-Enfin, je ne penses pas arrêter le projet à cet endroit mais je vais continuer à développer de jeu pour créer un produit finit encore plus intéressant !
+Enfin, je ne penses pas arrêter le projet à cet endroit mais je vais continuer à développer de jeu pour créer un produit fini encore plus intéressant !

@@ -303,7 +303,8 @@ Pour compiler le jeu, si vous voulez pouvoir utiliser une version exécutable du
 
 Voici quelques captures d'écran du jeu pour vous spoiler un peu 😄 :
 
-*Soon*
+![Petit spoiler du jeu](./data/documentation/spoiler.png)
+![Never gonna give you up](./data/documentation/spoiler2.png)
 
 ## Bilan personnel
 

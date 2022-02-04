@@ -70,27 +70,27 @@ Ce projet n'aurait pas été possible sans d'autres projets annexes sur lesquels
 ## Structure du programme
 | Dossier | Fichier | Fonction |
 | :------ | :------ | :------- |
-| [.](https://github.com/ascpial/Sylvajia) | main.py | Ce script python est celui à utiliser pour lancer le jeu. Il contient les lignes de code nécessaire à la préparation de l'environnement et à l'instanciation de la classe principale |
-| [.](https://github.com/ascpial/Sylvajia) | requirements.txt | Ce fichier contient les modules nécessaires au bon fonctionnement du jeu. Il peut être utilisé avec la commande `py -m pip install -r requirements.txt` |
-| [.](https://github.com/ascpial/Sylvajia) | README.md | Le fichier d'informations que vous lisez actuellement |
-| [.](https://github.com/ascpial/Sylvajia) | .gitignore | Ce fichier est utilisé par le programme de gestion de versions [git](https://git-scm.com) et indique quels fichier ignorer (ici les fichiers ignorés sont les fichiers de configuration de l'IDE populaire [VSCode](https://code.visualstudio.com), le cache de python, et l'environnement virtuel python) |
-| [./lib](https://github.com/ascpial/Sylvajia/tree/main/lib) | * | Ce dossier contient les fichiers binaires nécessaires au GameSDK de discord |
-| [./data](https://github.com/ascpial/Sylvajia/tree/main/data) | * | Ce dossier contient les informations de configuration, de blocs, de texture et de polices pour le jeu |
-| [./src](https://github.com/ascpial/Sylvajia/tree/main/src) | * | Ce dossier contient le code source du jeu |
+| [.](https://github.com/ascpial/Sylvajia-NSI) | main.py | Ce script python est celui à utiliser pour lancer le jeu. Il contient les lignes de code nécessaire à la préparation de l'environnement et à l'instanciation de la classe principale |
+| [.](https://github.com/ascpial/Sylvajia-NSI) | requirements.txt | Ce fichier contient les modules nécessaires au bon fonctionnement du jeu. Il peut être utilisé avec la commande `py -m pip install -r requirements.txt` |
+| [.](https://github.com/ascpial/Sylvajia-NSI) | README.md | Le fichier d'informations que vous lisez actuellement |
+| [.](https://github.com/ascpial/Sylvajia-NSI) | .gitignore | Ce fichier est utilisé par le programme de gestion de versions [git](https://git-scm.com) et indique quels fichier ignorer (ici les fichiers ignorés sont les fichiers de configuration de l'IDE populaire [VSCode](https://code.visualstudio.com), le cache de python, et l'environnement virtuel python) |
+| [./lib](https://github.com/ascpial/Sylvajia-NSI/tree/main/lib) | * | Ce dossier contient les fichiers binaires nécessaires au GameSDK de discord |
+| [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | * | Ce dossier contient les informations de configuration, de blocs, de texture et de polices pour le jeu |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | * | Ce dossier contient le code source du jeu |
 
 <details>
     <summary>Voir le contenu du dossier ./data</summary>
 
 | Dossier | Fichier | Fonction |
 | :------ | :------ | :------- |
-| [./data/images](https://github.com/ascpial/Sylvajia/tree/main/data/images) | * | Ce dossier contient toutes les textures utilisées par le jeu. |
-| [./data/fonts](https://github.com/ascpial/Sylvajia/tree/main/data/fonts) | * | Ce dossier contient les polices d'écriture utilisées par le jeu |
-| [./data/Toen's Medieval Strategy Sprite Pack v.1.0 (16x16)](https://github.com/ascpial/Sylvajia/tree/main/data/Toen's%20Medieval%20Strategy%20Sprite%20Pack%20v.1.0%20(16x16)) | * | Ce dossier contient les resources originales du pack de texture, trouvable [ici](https://toen.itch.io/toens-medieval-strategy) |
-| [./data](https://github.com/ascpial/Sylvajia/tree/main/data) | blocs.json | Ce fichier json contient les propriétées des différents terrain disponible dans le jeu. |
-| [./data](https://github.com/ascpial/Sylvajia/tree/main/data) | configuration.json | C'est le fichier de configuration du jeu. Il contient l'ID d'application discord (voir plus dans la section Discord) |
-| [./data](https://github.com/ascpial/Sylvajia/tree/main/data) | textures.json | Ce fichier contient les textures des terrains du jeu, avec notamment les fichiers correspondant, le type de textures (animé ou non...) |
-| [./data](https://github.com/ascpial/Sylvajia/tree/main/data) | networking.png | L'image présentant le fonctionnement de l'interface entre le jeu et l'application discord |
-| [./data](https://github.com/ascpial/Sylvajia/tree/main/data) | Networking.drawio | L'organigramme d'explication du fonctionnement de l'interface entre le jeu et discord ouvrable avec le site [diagrams.net](https://app.diagrams.net) |
+| [./data/images](https://github.com/ascpial/Sylvajia-NSI/tree/main/data/images) | * | Ce dossier contient toutes les textures utilisées par le jeu. |
+| [./data/fonts](https://github.com/ascpial/Sylvajia-NSI/tree/main/data/fonts) | * | Ce dossier contient les polices d'écriture utilisées par le jeu |
+| [./data/Toen's Medieval Strategy Sprite Pack v.1.0 (16x16)](https://github.com/ascpial/Sylvajia-NSI/tree/main/data/Toen's%20Medieval%20Strategy%20Sprite%20Pack%20v.1.0%20(16x16)) | * | Ce dossier contient les resources originales du pack de texture, trouvable [ici](https://toen.itch.io/toens-medieval-strategy) |
+| [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | blocs.json | Ce fichier json contient les propriétées des différents terrain disponible dans le jeu. |
+| [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | configuration.json | C'est le fichier de configuration du jeu. Il contient l'ID d'application discord (voir plus dans la section Discord) |
+| [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | textures.json | Ce fichier contient les textures des terrains du jeu, avec notamment les fichiers correspondant, le type de textures (animé ou non...) |
+| [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | networking.png | L'image présentant le fonctionnement de l'interface entre le jeu et l'application discord |
+| [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | Networking.drawio | L'organigramme d'explication du fonctionnement de l'interface entre le jeu et discord ouvrable avec le site [diagrams.net](https://app.diagrams.net) |
 
 </details>
 
@@ -99,18 +99,18 @@ Ce projet n'aurait pas été possible sans d'autres projets annexes sur lesquels
 
 | Dossier | Fichier | Fonction |
 | :------ | :------ | :------- |
-| [./src](https://github.com/ascpial/Sylvajia/tree/main/src) | configuration.py | Ce fichier charge la configuration dans une classe facilement utilisable dans le reste du programme |
-| [./src](https://github.com/ascpial/Sylvajia/tree/main/src) | discord.py | Ce fichier interface discord avec le jeu. Il contient les fonctions appelées aux évenements et implémente le protocol du jeu |
-| [./src](https://github.com/ascpial/Sylvajia/tree/main/src) | enums.py | Certaines section du jeu nécessite d'avoir des nombres utilisés pour certaines tâches. Pour rendre le code plus lisible, ces nombres sont stockés dans ce fichier sous forme de constantes |
-| [./src](https://github.com/ascpial/Sylvajia/tree/main/src) | extract.py | Ce fichier est utilisé pour découper les textures du pack originale en fichiers plus petits et plus facils d'utilisation |
-| [./src](https://github.com/ascpial/Sylvajia/tree/main/src) | game.py | Ce fichier contient la classe principale du programme. C'est lui qui contient les routines pour répondre aux entrées via le clavier et qui fait marcher les différentes parties du programme ensemble |
-| [./src](https://github.com/ascpial/Sylvajia/tree/main/src) | map.py | Ce fichier contient les classes nécessaires pour gérer le terrain du jeu et la transformation du labyrinthe en terrain jouable |
-| [./src](https://github.com/ascpial/Sylvajia/tree/main/src) | maze_generator.py | Comme son nom l'indique, ce fichier contient le générateur de labyrinthe utilisé pour générer le terrain de la partie, voir la section `Labyrinthe` pour plus d'informations |
-| [./src](https://github.com/ascpial/Sylvajia/tree/main/src) | players.py | Ce fichier contient les classes implémentant les joueurs et la classe permettant de gérer plusieurs joueurs à la fois |
-| [./src](https://github.com/ascpial/Sylvajia/tree/main/src) | playloads.py | Ce fichier permet d'interfacer les différents clients facilement avec une conversion des messages du programmes en messages envoyable via discord |
-| [./src](https://github.com/ascpial/Sylvajia/tree/main/src) | sprites.py | Ce fichier contient les classes qui gèrent les textures et leur affichage sur l'écran |
-| [./src](https://github.com/ascpial/Sylvajia/tree/main/src) | discord_requests.py | Ce fichier est en court de création, il sera utilisé pour faciliter les requêtes entre clients |
-| [./src](https://github.com/ascpial/Sylvajia/tree/main/src) | playloads_workinprogress.py | Comme son nom l'indique, ce fichier est le travail en court pour l'implémentation des playloads en binaire |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | configuration.py | Ce fichier charge la configuration dans une classe facilement utilisable dans le reste du programme |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | discord.py | Ce fichier interface discord avec le jeu. Il contient les fonctions appelées aux évenements et implémente le protocol du jeu |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | enums.py | Certaines section du jeu nécessite d'avoir des nombres utilisés pour certaines tâches. Pour rendre le code plus lisible, ces nombres sont stockés dans ce fichier sous forme de constantes |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | extract.py | Ce fichier est utilisé pour découper les textures du pack originale en fichiers plus petits et plus facils d'utilisation |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | game.py | Ce fichier contient la classe principale du programme. C'est lui qui contient les routines pour répondre aux entrées via le clavier et qui fait marcher les différentes parties du programme ensemble |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | map.py | Ce fichier contient les classes nécessaires pour gérer le terrain du jeu et la transformation du labyrinthe en terrain jouable |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | maze_generator.py | Comme son nom l'indique, ce fichier contient le générateur de labyrinthe utilisé pour générer le terrain de la partie, voir la section `Labyrinthe` pour plus d'informations |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | players.py | Ce fichier contient les classes implémentant les joueurs et la classe permettant de gérer plusieurs joueurs à la fois |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | playloads.py | Ce fichier permet d'interfacer les différents clients facilement avec une conversion des messages du programmes en messages envoyable via discord |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | sprites.py | Ce fichier contient les classes qui gèrent les textures et leur affichage sur l'écran |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | discord_requests.py | Ce fichier est en court de création, il sera utilisé pour faciliter les requêtes entre clients |
+| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | playloads_workinprogress.py | Comme son nom l'indique, ce fichier est le travail en court pour l'implémentation des playloads en binaire |
 
 </details>
 
@@ -213,7 +213,7 @@ L'implémentation de cet algorithme pour le jeu est située dans le fichier `./s
 ### Avec la version compilée
 
 Le jeu est disponible déjà compilé. Pour pouvoir télécharger le jeu et le lancer facilement sans installer python, vous pouvez suivre ces étapes :
-1. Allez sur la [page des releases](https://github.com/ascpial/Sylvajia/releases)
+1. Allez sur la [page des releases](https://github.com/ascpial/Sylvajia-NSI/releases)
 2. Téléchargez le fichier `Sylvajia_executable.zip` et décompressez le
 3. Vous pouvez maintenant lancer le jeu en ouvrant le fichier `Sylvajia.exe` dans le dossier décompréssé !
 
@@ -221,7 +221,7 @@ Le jeu est disponible déjà compilé. Pour pouvoir télécharger le jeu et le l
 
 Si vous voulez tester le jeu et vous forger votre propre avis, vous pouvez suivre les étapes suivantes :
 1. Vérifiez que vous avez bien [python](https://python.org/) 3.9 installé sur votre ordinateur
-2. Téléchargez le code source ou clonez le dans un dossier : `git clone https://github.com/ascpial/Sylvajia`
+2. Téléchargez le code source ou clonez le dans un dossier : `git clone https://github.com/ascpial/Sylvajia-NSI`
 3. Allez maintenant dans le dossier que vous avez téléchargé / cloné : `cd Sylvajia`
 4. Si c'est la première fois que vous installez le jeu, il faut installer les dépendances : `python -m pip install -r requirements.txt`
 5. Installez l'application Discord si ce n'est pas fait pour profiter du multijoueur

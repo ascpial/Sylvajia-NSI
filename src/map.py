@@ -12,8 +12,6 @@ from .enums import Channels, World, WorldKey, WorldType
 from .playloads import Playload
 from .sprites import Sprite
 
-from .bloc import Tile as TileTest
-
 if TYPE_CHECKING:
     from .game import Pygame
 

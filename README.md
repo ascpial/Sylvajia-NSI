@@ -14,6 +14,14 @@ Le multijoueur utilise le SDK de [discord](https://discord.com/) pour fonctionne
     <summary>Table des matières</summary>
 
 - [Sylvajia](#sylvajia)
+  - [Cahier des charges](#cahier-des-charges)
+    - [Contexte](#contexte)
+    - [Objectif](#objectif)
+    - [Périmètre](#périmètre)
+    - [Ressources](#ressources)
+    - [Budget](#budget)
+    - [Délais](#délais)
+  - [Description fonctionnelle](#description-fonctionnelle)
   - [Fonctionnement général](#fonctionnement-général)
     - [Librairies](#librairies)
     - [Étapes principales du jeu](#étapes-principales-du-jeu)
@@ -27,7 +35,63 @@ Le multijoueur utilise le SDK de [discord](https://discord.com/) pour fonctionne
     - [Avec la version compilée](#avec-la-version-compilée)
     - [Avec les sources](#avec-les-sources)
     - [Compiler sa propre version du jeu](#compiler-sa-propre-version-du-jeu)
+  - [Aperçu du jeu](#aperçu-du-jeu)
+  - [Bilan personnel](#bilan-personnel)
 </details>
+
+## Cahier des charges
+
+### Contexte
+
+J'ai créé ce jeu à la demande de mon professeur de NSI afin d'apprendre à faire un produit finit en suivant la demande d'un client.
+
+Ce projet aurait dû être fait en groupe et m'aurait ainsi aidé à développer avec d'autres personnes mais je me suis retrouvé tout seul car le script python m'a désigné pour être tout seul.
+
+### Objectif
+
+Le but de ce projet est d'apprendre à développer un jeu en python, et de résoudre un problème posé par le professeur.
+
+Le jeu doit être divertissant, simple au niveau de la création et de la prise en main.
+
+Il ne doit pas contenir trop de fonctionnalités pour ne pas rendre le projet trop lourd dans le cadre d'un devoir de NSI.
+
+### Périmètre
+
+Le projet doit pouvoir s'adresser au plus d'utilisateurs possible. Le fait qu'il soit codé en python lui permet de tourner sur n'importe quelles machines pour peu qu'elle puisse supporter les dépendances nécessaires (Mac, Linux et Windows).
+
+Il est surtout destiné à mon professeur de NSI.
+
+Le fait qu'il puisse fonctionner en multijoueur permet au jeu d'atteindre un plus grand public et de passer du bon temps avec des amis. Je n'ai pas d'amis donc je n'ai pas pu tester.
+
+### Ressources
+
+Les ressources peuvent se diviser en deux catégories :
+- Les ressources matérielles
+  * N'importe quel ordinateur fait l'affaire pour peu qu'il puisse faire tourner python, les dépendances nécessaires et un éditeur de code
+  * Un peu électricité pour tout faire tourner
+- Les ressources numériques
+  * Le pack de texture [Toen's Medieval Strategy pack](https://toen.itch.io/toens-medieval-strategy)
+  * Pygame pour l'affichage, Pillow pour le traitement des fichiers de textures
+  * DiscordSDK et son port pour python pour le multijoueur
+
+La principale limite pour ce projet et la puissance des appareils employés et les limitations des ordinateurs du lycée.
+
+### Budget
+
+Pas de budget j'ai pas d'argent
+
+### Délais
+
+Les délais ont étés repoussés encore et encore mais le projet doit (à l'heure où nous écrivons ces lignes) être rendu avant la deuxième semaine des vacances.
+
+## Description fonctionnelle
+
+Les modules utilisés pour ce projets sont visibles dans la section [Librairies](#librairies).
+
+Le programme doit se découper en différentes parties :
+* La section gérant l'affichage du jeu (avec pygame)
+* La section gérant la physique du jeu
+* La section gérant le multijoueur et la partie sociale du jeu (avec le Discord GameSDK)
 
 ## Fonctionnement général
 
@@ -234,3 +298,17 @@ Pour compiler le jeu, si vous voulez pouvoir utiliser une version exécutable du
 2. Naviguez dans le dossier du code source du jeu dans un terminal
 3. Tapez la commande `pyinstaller sylvajia.spec`
 4. Une fois créé, le dossier et le fichier .exe à utiliser sont trouvables dans le dossier `./dist` !
+
+## Aperçu du jeu
+
+Voici quelques captures d'écran du jeu pour vous spoiler un peu 😄 :
+
+*Soon*
+
+## Bilan personnel
+
+J'ai beaucoup aimé faire ce projet qui m'a appris beaucoup de choses sur la manière de créer des interfaces graphiques pour un jeu et la manière de traiter les informations de l'utilisateur.
+
+J'ai aussi beaucoup aimé faire la partie concernant discord, même si elle n'a pas grand chose à voir avec le projet demandé par mon professeur.
+
+Enfin, je ne penses pas arrêter le projet à cet endroit mais je vais continuer à développer de jeu pour créer un produit finit encore plus intéressant !

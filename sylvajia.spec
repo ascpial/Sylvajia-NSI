@@ -1,6 +1,5 @@
 # -*- mode: python ; coding: utf-8 -*-
 
-
 block_cipher = None
 
 
@@ -9,7 +8,11 @@ a = Analysis(['main.py'],
              binaries=[],
              datas=[
                  ('lib/', 'lib'),
-                 ('data/', 'data'),
+                 ('data/fonts', 'data/fonts'),
+                 ('data/images', 'data/images'),
+                 ('data/blocs.json', 'data'),
+                 ('data/textures.json', 'data'),
+                 ('data/configuration.json', 'data'),
                  ('desktop.ini', '.')
              ],
              hiddenimports=[],
@@ -21,6 +24,8 @@ a = Analysis(['main.py'],
              win_private_assemblies=False,
              cipher=block_cipher,
              noarchive=False)
+output = os.path.join('data', 'images', 'output')
+a.datas = [entry for entry in a.datas if not entry[0].startswith(output)]
 pyz = PYZ(a.pure, a.zipped_data,
              cipher=block_cipher)
 

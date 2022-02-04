@@ -1,0 +1,50 @@
+[
+    {
+        "name": "grass",
+        "hitbox": false
+    },
+    {
+        "name": "sea",
+        "hitbox": true
+    },
+    {
+        "name": "path",
+        "hitbox": false
+    },
+    {
+        "name": "moulin",
+        "hitbox": true
+    },
+    {
+        "name": "gravel_path",
+        "hitbox": false
+    },
+    {
+        "name": "river",
+        "hitbox": true
+    },
+    {
+        "name": "muraille",
+        "hitbox": true
+    },
+    {
+        "name": "border",
+        "hitbox": false
+    },
+    {
+        "name": "bridge",
+        "hitbox": false
+    },
+    {
+        "name": "stone_bridge",
+        "hitbox": false
+    },
+    {
+        "name": "entrance",
+        "hitbox": false
+    },
+    {
+        "name": "lake",
+        "hitbox": true
+    }
+]

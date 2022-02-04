@@ -1,0 +1,163 @@
+{
+    "player": {
+        "type": 2,
+        "location": "player/player_1.png",
+        "datas": {
+            "0": "player/player_0.png",
+            "1": "player/player_1.png",
+            "2": "player/player_2.png",
+            "3": "player/player_3.png",
+            "4": "player/player_4.png"
+        }
+    },
+    "grass": {
+        "type": 3,
+        "location": "grass/grass_0.png",
+        "grid": [
+            "grass/grass_0.png",
+            "grass/grass_1.png"
+        ]
+    },
+    "sea": {
+        "type": 1,
+        "location": "sea/sea_0.png",
+        "frames": [
+            "sea/sea_0.png",
+            "sea/sea_1.png",
+            "sea/sea_2.png",
+            "sea/sea_3.png"
+        ],
+        "interval": 10
+    },
+    "path": {
+        "type": 2,
+        "location": "path/path_15.png",
+        "datas": {
+            "3": "path/path_3.png",
+            "5": "path/path_5.png",
+            "6": "path/path_6.png",
+            "7": "path/path_7.png",
+            "9": "path/path_9.png",
+            "10": "path/path_10.png",
+            "11": "path/path_11.png",
+            "12": "path/path_12.png",
+            "13": "path/path_13.png",
+            "14": "path/path_14.png",
+            "15": "path/path_15.png"
+        }
+    },
+    "gravel_path": {
+        "type": 2,
+        "location": "gravel_path/gravel_path_15.png",
+        "datas": {
+            "3": "gravel_path/gravel_path_3.png",
+            "5": "gravel_path/gravel_path_5.png",
+            "6": "gravel_path/gravel_path_6.png",
+            "7": "gravel_path/gravel_path_7.png",
+            "9": "gravel_path/gravel_path_9.png",
+            "10": "gravel_path/gravel_path_10.png",
+            "11": "gravel_path/gravel_path_11.png",
+            "12": "gravel_path/gravel_path_12.png",
+            "13": "gravel_path/gravel_path_13.png",
+            "14": "gravel_path/gravel_path_14.png",
+            "15": "gravel_path/gravel_path_15.png"
+        }
+    },
+    "moulin": {
+        "type": 1,
+        "location": "moulin/moulin_1.png",
+        "frames": [
+            "moulin/moulin_1.png",
+            "moulin/moulin_2.png",
+            "moulin/moulin_3.png",
+            "moulin/moulin_4.png"
+        ],
+        "interval": 20
+    },
+    "river": {
+        "type": 2,
+        "location": "river/river_15.png",
+        "datas": {
+            "3": "river/river_3.png",
+            "5": "river/river_5.png",
+            "6": "river/river_6.png",
+            "7": "river/river_7.png",
+            "9": "river/river_9.png",
+            "10": "river/river_10.png",
+            "11": "river/river_11.png",
+            "12": "river/river_12.png",
+            "13": "river/river_13.png",
+            "14": "river/river_14.png",
+            "15": "river/river_15.png"
+        }
+    },
+    "muraille": {
+        "type": 2,
+        "location": "muraille/muraille_15.png",
+        "datas": {
+            "3": "muraille/muraille_3.png",
+            "5": "muraille/muraille_5.png",
+            "6": "muraille/muraille_6.png",
+            "7": "muraille/muraille_7.png",
+            "9": "muraille/muraille_9.png",
+            "10": "muraille/muraille_10.png",
+            "11": "muraille/muraille_11.png",
+            "12": "muraille/muraille_12.png",
+            "13": "muraille/muraille_13.png",
+            "14": "muraille/muraille_14.png",
+            "15": "muraille/muraille_15.png"
+        }
+    },
+    "border": {
+        "type": 2,
+        "location": "border/border_42.png",
+        "datas": {
+            "10": "border/border_10.png",
+            "12": "border/border_12.png",
+            "22": "border/border_22.png",
+            "28": "border/border_28.png",
+            "30": "border/border_30.png",
+            "38": "border/border_38.png",
+            "42": "border/border_42.png",
+            "50": "border/border_50.png",
+            "52": "border/border_52.png",
+            "58": "border/border_58.png",
+            "68": "border/border_68.png",
+            "70": "border/border_70.png"
+        }
+    },
+    "bridge": {
+        "type": 2,
+        "location": "bridge/bridge_0.png",
+        "datas": {
+            "0": "bridge/bridge_0.png",
+            "1": "bridge/bridge_1.png"
+        }
+    },
+    "stone_bridge": {
+        "type": 2,
+        "location": "stone_bridge/stone_bridge_0.png",
+        "datas": {
+            "0": "stone_bridge/stone_bridge_0.png",
+            "1": "stone_bridge/stone_bridge_1.png"
+        }
+    },
+    "entrance": {
+        "type": 2,
+        "location": "entrance/entrance_0.png",
+        "datas": {
+            "0": "entrance/entrance_0.png",
+            "1": "entrance/entrance_1.png"
+        }
+    },
+    "lake": {
+        "type": 1,
+        "location": "lake/lake_1.png",
+        "frames": [
+            "lake/lake_1.png",
+            "lake/lake_2.png",
+            "lake/lake_3.png"
+        ],
+        "interval": 10
+    }
+}

@@ -153,8 +153,7 @@ Ce projet n'aurait pas été possible sans d'autres projets annexes sur lesquels
 | [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | blocs.json | Ce fichier json contient les propriétés des différents terrain disponible dans le jeu. |
 | [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | configuration.json | C'est le fichier de configuration du jeu. Il contient l'ID d'application discord (voir plus dans la section Discord) |
 | [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | textures.json | Ce fichier contient les textures des terrains du jeu, avec notamment les fichiers correspondant, le type de textures (animé ou non...) |
-| [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | networking.png | L'image présentant le fonctionnement de l'interface entre le jeu et l'application discord |
-| [./data](https://github.com/ascpial/Sylvajia-NSI/tree/main/data) | Networking.drawio | L'organigramme d'explication du fonctionnement de l'interface entre le jeu et discord ouvrable avec le site [diagrams.net](https://app.diagrams.net) |
+| [./data/documentation](https://github.com/ascpial/Sylvajia-NSI/tree/main/data/documentation) | * | Ce dossier contient les assets utilisé dans le README.md |
 
 </details>
 
@@ -173,8 +172,6 @@ Ce projet n'aurait pas été possible sans d'autres projets annexes sur lesquels
 | [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | players.py | Ce fichier contient les classes implémentant les joueurs et la classe permettant de gérer plusieurs joueurs à la fois |
 | [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | payloads.py | Ce fichier permet d'interfacer les différents clients facilement avec une conversion des messages du programmes en messages envoyable via discord |
 | [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | sprites.py | Ce fichier contient les classes qui gèrent les textures et leur affichage sur l'écran |
-| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | discord_requests.py | Ce fichier est en court de création, il sera utilisé pour faciliter les requêtes entre clients |
-| [./src](https://github.com/ascpial/Sylvajia-NSI/tree/main/src) | payloads_workinprogress.py | Comme son nom l'indique, ce fichier est le travail en court pour l'implémentation des payloads en binaire |
 
 </details>
 

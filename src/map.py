@@ -644,12 +644,12 @@ class Map:
     @property
     def animation_state(self) -> int:
         """Retourne l'index de texture actuel général pour tout le jeu"""
-        return self.parent.texture_index
+        return self.parent.animation_state
     
     @animation_state.setter
     def animation_state(self, value: int) -> None:
         """Paramètre l'index de texture général sur la valeur donnée"""
-        self.parent.texture_index = value
+        self.parent.animation_state = value
     
     def to_dict(self) -> Dict[str, Any]:
         """Retourne le status actuel de la classe pour le sérialisateur"""

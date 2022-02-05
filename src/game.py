@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import pickle
-import time
 import logging
 
 import pygame
@@ -26,7 +24,7 @@ class Pygame:
     et l'instance du monde (`self.map`).
     """
     exit = 0
-    texture_index = 0
+    animation_state = 0
     debug: int
     debug_key_pressed: bool = False
     noclip: bool = False

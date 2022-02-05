@@ -68,7 +68,7 @@ class Pygame:
         """Cette fonction fait tourner le jeu tant qu'il n'est pas quitté (avec la croix ou alt+f4).
         """
         message = self.font.render(
-            "Connexion à discord...",
+            "Connexion a discord...",
             False,
             (255, 255, 255)
         )
@@ -81,7 +81,7 @@ class Pygame:
         )
         
         timeout = 0
-        while not(self.discord.ready):
+        while not self.discord.ready:
             self.discord.loop()
 
             for event in pygame.event.get():

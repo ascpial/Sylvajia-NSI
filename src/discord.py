@@ -74,14 +74,14 @@ class Discord:
     
     def loop(self):
         """Boucle principale de la classe, fait tourner les callbacks et execute le serveur logique pour le réseau"""
-        if self.enable:
+        if self.enable or not self.ready:
             self.application.run_callbacks()
             if self.lobby:
                 self.parent.players.update_pos()
     
     def loop_end(self):
         """Deuxième boucle principale de la classe, envois les messages aux autres utilisateurs"""
-        if self.enable:
+        if self.enable or not self.ready:
             self.network_manager.flush()
     
     @property

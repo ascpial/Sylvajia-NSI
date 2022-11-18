@@ -2,6 +2,8 @@
 
 # Sylvajia
 
+:warning: Discord a décidé de ne plus supporter la fonctionnalité réseau du Discord Game SDK, ce qui rendra ce programme impossible de fonctionner en multijoueur dans le futur.
+
 Ce projet est un jeu multijoueur en 2D avec une vision verticale. Le personnage évolue sur une grille de cases de terrain.
 
 Le but, dans l'état actuel des choses est de résoudre un labyrinthe. Un labyrinthe parfait aléatoire fait office de monde dans cette version du jeu.

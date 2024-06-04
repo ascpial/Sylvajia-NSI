@@ -603,34 +603,6 @@ class Map:
             background = None
         return cls(x, y, type, data, self, background)
     
-    def on_message(self, payload:Payload, discord: Discord) -> None:
-        """Traite un message reçu sur le channel 2 (channel de mises à jour du monde)
-        """
-        if payload.type == World.get:
-            if payload.data == WorldType.all:
-                discord.send_message(
-                    Channels.world_update.value,
-                    Payload(
-                        World.update.value,
-                        [
-                            WorldType.all.value,
-                            self.to_dict(),
-                        ]
-                    )
-                )
-        elif payload.type == World.update:
-            if payload.data[WorldKey.type] == WorldType.all:
-                self.load_dict(payload.data[WorldKey.data.value])
-    
-    def query(self, discord: Discord) -> None:
-        discord.send_message(
-            Channels.world_update.value,
-            Payload(
-                World.get.value,
-                WorldType.all.value
-            )
-        )
-        
     @property
     def camera_x(self) -> int:
         """Retourne la coordonnée x actuelle de la caméra (celle du parent)"""

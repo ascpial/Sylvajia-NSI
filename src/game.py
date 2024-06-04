@@ -10,7 +10,6 @@ import pygame.key
 import pygame.font
 import pygame.image
 
-from .discord import Discord
 from .players import Players
 from . import players
 from .map import Map
@@ -20,8 +19,7 @@ FPS = 30
 class Pygame:
     """Ceci est la classe principale de l'affichage.
     C'est elle qui gère l'affichage à l'écran et les inputs au clavier.
-    Elle contient l'instance du connecteur discord (`self.discord`), l'instance des joueurs (`self.players`),
-    et l'instance du monde (`self.map`).
+    Elle contient l'instance des joueurs (`self.players`) et l'instance du monde (`self.map`).
     """
     exit = 0
     animation_state = 0
@@ -31,7 +29,7 @@ class Pygame:
 
     def __init__(self):
         """Initialise le jeu.
-        Cette fonction charge les fonts, prépare l'écran et l'horloge du jeu, créé le connecteur discord, la classe qui gère les joueurs
+        Cette fonction charge les fonts, prépare l'écran et l'horloge du jeu, créé la classe qui gère les joueurs
         et la classe contenant le terrain.
         """
         pygame.init()
@@ -54,8 +52,6 @@ class Pygame:
         pygame.display.set_icon(pygame_icon)
         self.clock = pygame.time.Clock()
 
-        self.discord = Discord(self)
-
         self.players = Players(self)
 
         if True:
@@ -65,54 +61,14 @@ class Pygame:
     def loop(self):
         """Cette fonction fait tourner le jeu tant qu'il n'est pas quitté (avec la croix ou alt+f4).
         """
-        message = self.font.render(
-            "Connexion a discord...",
-            False,
-            (255, 255, 255)
-        )
-        self.screen.blit(
-            message, 
-            (
-                self.screen.get_width() // 2 - message.get_width() // 2,
-                self.screen.get_height() // 2 - message.get_height() // 2
-            )
-        )
-        
-        timeout = 0
-        while not self.discord.ready:
-            self.discord.loop()
-
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    return
-            
-            key_input = pygame.key.get_pressed()
-            if key_input[pygame.K_ESCAPE]:
-                return
-            
-            self.discord.loop_end()
-            pygame.display.update()
-
-            # Gérer le timeout
-            timeout += 1
-            if timeout >= 600:
-                self.discord.disable()
-            self.clock.tick(FPS)
-        
         self.players.init()
 
         while not self.exit:
-            self.discord.loop()
-
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.exit=True
-                #elif event.type == pygame.KEYDOWN and self.discord.lobby is not None:
-                #    self.discord.send_message(ChannelType.pos, b"Bonjour :)")
 
             self.process_keys()
-            
-            self.discord.loop_end()
 
             self.screen.fill((255,255,255))
             self.map.render()

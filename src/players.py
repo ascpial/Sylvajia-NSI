@@ -6,10 +6,7 @@ import time
 import pygame
 import pygame.image
 from pygame.surface import Surface
-import discordsdk
 
-from .enums import PlayerPos, PlayerPosKey
-from .payloads import Payload
 from .sprites import Sprite
 
 if TYPE_CHECKING:
@@ -163,7 +160,6 @@ class Player:
 
     color_: int = 0
 
-    user: Optional[discordsdk.User] = None
     name: Optional[str] = None
     rendered_name: Optional[Surface] = None
 
@@ -185,11 +181,7 @@ class Player:
         self.id = id
         self.coords = Coords(x, y)
         self.color = 0
-        if self.parent.discord.enable:
-            self.parent.discord.user_manager.get_user(self.id, self.set_user)
-            self.name = "Chargement..."
-        else:
-            self.name = "ANONYMOUS"
+        self.name = ""
         self.rendered_name = self.parent.small_font.render(
             self.name,
             True,
@@ -217,28 +209,6 @@ class Player:
             screen.blit(self.rendered_name, (x, y))
         self.sprite.blit(screen)
     
-    def set_user(self, result: discordsdk.Result, user: discordsdk.User) -> None:
-        """Cette fonction est appelée lors de la synchronisation de l'utilisateur discord.
-        Elle synchronise son nom.
-        
-        Attributes
-        ----------
-        result: discordsdk.Result
-            Le résultat de la requête de la synchronisation
-        user: discordsdk.User
-            L'utilisateur discord
-        """
-        if result == discordsdk.Result.ok:
-            self.user = user
-            self.name = self.user.username
-            self.rendered_name = self.parent.small_font.render(
-                self.name,
-                True,
-                0x000000
-            )
-        else:
-            print(f"Error : {result}")
-        
     def move_by(self, offset_x: int = 0, offset_y: int = 0, check_move: bool = True) -> bool:
         """Déplace le joueur avec les coordonnées indiquées.
         
@@ -312,15 +282,12 @@ class Players:
     def init(self) -> None:
         """Cette fonction initialise le joueur.
         """
-        if self.parent.discord.enable:
-            self.player_id = self.parent.discord.user.id
-        else:
-            self.player_id = 0
+        self.player_id = 0
         self.new(self.player_id)
         self.player.color = 1
     
     def __getitem__(self, player_id: int) -> Player:
-        """Cette fonction retourne un joueur en fonction de son ID discord
+        """Cette fonction retourne un joueur en fonction d'un identifiant
         
         Attributes
         ----------
@@ -340,7 +307,7 @@ class Players:
         Attributes
         ----------
         player_id: int
-            L'ID discord du joueur à créer dans le dictionnaire
+            L'identifiant du joueur à créer dans le dictionnaire
         """
         if not player_id in self.players:
             self.players[player_id] = Player(
@@ -358,7 +325,7 @@ class Players:
         Attributes
         ----------
         player_id: int
-            L'ID discord du joueur à supprimer du dictionnaire
+            L'identifiant du joueur à supprimer du dictionnaire
         """
         if player_id in self.players:
             del self.players[player_id]
@@ -369,59 +336,10 @@ class Players:
         for player in self.players.values():
             player.update_animation()
             player.render()
-        
-    def on_message(self, payload: Payload, parent) -> None:
-        """Cette fonction est appelée quand le jeu reçoit un payload venant de discord.
-        Elle permet de mettre à jour la position des joueurs
-        
-        Attributes
-        ----------
-        payload: Payload
-            La charge utile du message qui est arrivé au client discord
-        parent: Pygame
-            Unused
-        """
-        if payload.type == PlayerPos.update:
-            x, y = payload.data[PlayerPosKey.pos_x], payload.data[PlayerPosKey.pos_y]
-            self.players[payload.data[PlayerPosKey.user_id]].coords.coords[0] = x
-            self.players[payload.data[PlayerPosKey.user_id]].coords.coords[1] = y
-        
-    def update_pos(self) -> None:
-        """Met à jour la position du joueur et envoi le paquet aux autres personnes connectées à la partie.
-        """
-        if self.player and self.parent.discord.enable:
-            payload = Payload(
-                PlayerPos.update,
-                [
-                    self.player.x, 
-                    self.player.y,
-                    self.player.id
-                ]
-            )
-            self.parent.discord.send_message(1, payload)
-    
+  
     def reset(self) -> None:
         """Cette fonction réinitialise tout les joueurs.
         """
         self.players = {}
         self.player = None
         self.color = 0
-    
-    def update_colors(self) -> None:
-        """Cette fonction est appelée pour mettre à jour les couleurs de joueurs pour qu'elles correspondent sur tout les clients.
-        """
-        for player in self.players.values():
-            color = self.parent.discord.get_metadata(player.id, "color")
-            if color is not None:
-                player.color = int(color)
-            else:
-                player.color = 0
-        if self.player.color == 0:
-            used_colors = [user.color for user in self.players.values() if user.color != 0]
-            color = 0
-            for color_ in range(1, 5):
-                if color_ not in used_colors:
-                    color = color_
-                    break
-            self.player.color = color
-            self.parent.discord.set_metadata("color", str(color))

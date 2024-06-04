@@ -7,13 +7,12 @@ a = Analysis(['main.py'],
              pathex=[],
              binaries=[],
              datas=[
-                 ('lib/', 'lib'),
                  ('data/fonts', 'data/fonts'),
                  ('data/images', 'data/images'),
                  ('data/blocs.json', 'data'),
                  ('data/textures.json', 'data'),
                  ('data/configuration.json', 'data'),
-                 ('desktop.ini', '.')
+#                 ('desktop.ini', '.')
              ],
              hiddenimports=[],
              hookspath=[],
